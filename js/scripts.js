@@ -1,15 +1,22 @@
 //Back-end logic
 
-//Define custom function to gather user input and make it into an array.
-let gatherInput = function(userInput) {
-  return userInput.split(" ");
+//Define custom function to replace characters with dashes and push the result to the puzzletext div.
+let replaceVowels = function(string) {
+  console.log(string);
+  let stringAsArray = [];
+  for (let index = 0; index < string.length; index += 1) {
+    let currentCharacter = string[index];
+    if (currentCharacter === 'a' || currentCharacter === 'e' || currentCharacter === 'i' || currentCharacter === 'o' || currentCharacter === 'u') {
+      stringAsArray[index] = '-';
+    } else {
+      stringAsArray[index] = currentCharacter;
+    } if (index === string.length-1) {
+        let finalPuzzle = stringAsArray.join('');
+        $('#puzzleText').text(finalPuzzle);
+    }
+  };
 };
 
-//Define a custom function that looks through the indices of an array for vowels and replaces them with dashes.
-let makeThePuzzle = function(inputString) {
-  let inputArray = gatherInput(inputString)
-  console.log(inputArray)
-}
 
 
 //Front-end logic
@@ -17,6 +24,8 @@ let makeThePuzzle = function(inputString) {
 $(document).ready(function() {
   $('#inputForm').submit(function(event) {
     event.preventDefault();
-    makeThePuzzle($('#userInput').val());
-  })
-})
+    replaceVowels($('#userInput').val());
+    $('#displayPuzzle').slideDown();
+    $('#inputForm').slideUp();
+  });
+});
