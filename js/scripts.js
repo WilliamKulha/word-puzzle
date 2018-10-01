@@ -1,8 +1,12 @@
 //Back-end logic
 
-//Define custom function to replace characters with dashes and push the result to the puzzletext div.
+let slider = function(show, hide) {
+  $(show).slideDown();
+  $(hide).slideUp();
+};
+
+//Define custom function to replace characters with dashes and push the result to the puzzletext div before joining it and printing it.
 let replaceVowels = function(string) {
-  console.log(string);
   let stringAsArray = [];
   for (let index = 0; index < string.length; index += 1) {
     let currentCharacter = string[index];
@@ -17,15 +21,15 @@ let replaceVowels = function(string) {
   };
 };
 
-
-
 //Front-end logic
-
 $(document).ready(function() {
   $('#inputForm').submit(function(event) {
     event.preventDefault();
     replaceVowels($('#userInput').val());
-    $('#displayPuzzle').slideDown();
-    $('#inputForm').slideUp();
+    slider('#displayPuzzle', '#inputForm');
   });
+  $('#startOver').click(function(event) {
+    event.preventDefault();
+    slider('#inputForm', '#displayPuzzle')
+  })
 });
