@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Word Puzzle</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="well">
+        <div class="text-center">
+          <h4>Make a word puzzle for your friends.</h4>
+        </div>
+        <div id="inputForm">
+          <form>
+            <div class="form-group">
+              <label for="userInput">Put whatever sentence, quote, or block of text you'd like here</label>
+              <textarea class="form-control" id="userInput" rows="4"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Make the puzzle</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="well" id="displayPuzzle">
+        <p id="puzzleText">
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
